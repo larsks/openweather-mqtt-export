@@ -54,6 +54,8 @@ def main():
         topic = '{}/openweathermap/{}'.format(
             args.topic, data['id'])
         sample = data['main']
+        sample['temperature'] = sample['temp']
+        del sample['temp']
         sample['clouds'] = data['clouds']['all']
         sample['wind_speed'] = data['wind']['speed']
         sample['wind_direction'] = data['wind']['deg']
